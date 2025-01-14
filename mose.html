@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>change image</title>
+        <script>
+            function showImage() {
+                document.getElementById("display").innerHTML = '<img src="grad.png" alt="graduation">';
+            }
+            function showText() {
+                document.getElementById("display").innerHTML = "Hover over to see the image!";
+            }
+        </script>
+    </head>
+    <body>
+        <h1>OnMouseOver and OnMouseOut Example</h1>
+        <div id="display" onmouseover="showImage()" onmouseout="showText()">
+        </div>
+    </body>
+    </html>

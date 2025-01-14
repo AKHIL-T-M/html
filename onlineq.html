@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>onlineQz</title>
+    <style>
+        div{
+            margin:"2px";
+            width:"50px";
+        }
+    </style>
+    <script>
+        function getresult(){
+            var mark=0;
+            if(document.getElementById('q1b').checked)
+                mark=mark+1;
+            if(document.getElementById('q2c').checked)
+                mark=mark+1;
+            if(document.getElementById('q3a').checked)
+                mark=mark+1;
+            if(document.getElementById('q4d').checked)
+                mark=mark+1;
+            alert("result\n:"+mark);
+        }
+    </script>
+</head>
+<body align="center">
+    <div>
+        <h1>HTML QUIZ</h1>
+        1.<br>
+        <input type="radio" id="q1a"><br>
+        <input type="radio" id="q1b"><br>
+        2.<br>
+        <input type="radio" id="q2a"><br>
+        <input type="radio" id="q2c"><br>
+        3.<br>
+        <input type="radio" id="q3a"><br>
+        <input type="radio" id="q3a"><br>
+        4.<br>
+        <input type="radio" id="q4a"><br>
+        <input type="radio" id="q4b"><br>
+        <input type="radio" id="q4d"><br>
+        <button onclick="getresult()">SUBMIT</button>
+    </div>
+</body>
+</html>

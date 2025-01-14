@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>Calender</title>
+    <script>
+        function genCalender()
+        {
+            var year=prompt("Enter the year");
+            if(year==null)
+                year=2025;
+            var month=prompt("Enter month");
+            if(month==null)
+                month=1;
+            var numDays=(new Date(year,month,0)).getDate();
+            var wDay=(new Date(year,month-1,1)).getDay();
+            document.body.innerHTML=''
+            document.write("<center>");
+            document.write("<h1>Calender("+year+"-"+month+")");
+            document.write("<table width='400px' border='1' align='center'>");
+                document.write("<thead>");
+                document.write("<tr bgcolor='blue' align='center'>");
+                document.write("<td width='50px'>SUN</td>");
+                document.write("<td width='50px'>MON</td>");
+                document.write("<td width='50px'>TUE</td>");
+                document.write("<td width='50px'>WEN</td>");
+                document.write("<td width='50px'>THU</td>");
+                document.write("<td width='50px'>FRI</td>");
+                document.write("<td width='50px'>SAT</td>");
+                document.write("</tr>");
+                document.write("</thead>");
+                var i;
+                document.write("<tr align='center'>");
+                for(i=0;i<wDay;i++)
+                {
+                    document.write("<td width='50px'></td>");
+                }
+                var d;
+                for(d=1;d<=numDays;d++)
+                {
+                    document.write("<td width='50px'>"+d+"</td>");
+                    if(i==6)
+                    {
+                    document.write("</tr>");
+                    document.write("<tr align='center'>");
+                        i=0;
+                    }
+                    else
+                    i++;
+                }
+                for(i;i<7;i++)
+                {
+                    document.write("<td width='50px'></td>");
+                }
+                document.write("</table><br>");
+                document.write("<button onclick='genCalender()'>Read another year and month</button>");
+                document.write('</center>');
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <button onclick="genCalender()">Read year and month</button>
+    </center>
+</body>
+</html>

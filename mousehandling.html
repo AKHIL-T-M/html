@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>changeimage</title>
+		<script language="javascript">
+		function setfirstimage()
+		{
+			document.getElementById("image").src="bird1.jpg";
+		}
+		function setnextimage()
+		{
+			document.getElementById("image").src="grad.png";
+		}
+        function changetxt(){
+            document.getElementById("text").textContent="welcome";
+        }
+        function resettext(){
+            document.getElementById("text").textContent="have a nice day";
+        }
+		</script>
+	</head>
+	<body>
+<img id="image" onmouseover="setfirstimage()" onmouseout="setnextimage()" src="bird2.jpg" src="grad.jpg">	
+<p id="text" onmouseover="changetext()" onmouseout="resettext()">hello</p>
+	</body>
+</html>

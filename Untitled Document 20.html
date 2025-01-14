@@ -1,0 +1,181 @@
+<html>
+<head>
+<title></title>
+<style>
+body{
+	font-family:Arial;
+	color:black;
+h1{
+	text-align:center;
+}
+form{
+	max-width:600px;
+	margin:0 auto;
+	padding:20px;
+	border-radius:8px;
+	box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+input[type="text"],input[type="password"],select,textarea
+{
+	width:100%;
+	padding:10px;
+	margin:5px 0;
+	border:1px solid #ccc;
+	border-radius:5px;
+	font-size:16px;
+}
+input[type="submit"],input[type="reset"],input[type="agree"]
+{	
+	background-color:cyan;
+	color:white;
+	border-radius:2px;
+	padding:10px 20px;
+	cursor:pointer;
+}
+input[type="submit"].hover,input[type="reset"].hover,input[type="agree"].hover
+{
+	background-color:grey;
+}
+.error-message
+{
+	color:red;
+	font-size:14px;
+	margin-top:5px;
+}
+</style>
+</head>
+<body>
+<h1>regform</h1>
+<form name="RegForm" onsubmit="return vali()" onreset="reseterror()">
+<p>
+	<label for="name">name</label>
+	<input type="text" id="name" name="name" placeholder="enter name">
+	<span id="name-error" class="error-message"></span>
+</p>
+<p>
+	<label for="address">address</label>
+	<input type="text" id="address" name="address" placeholder="enter address">
+	<span id="address-error" class="error-message"></span>
+</p>	
+<p>
+	<label for="email">email</label>
+	<input type="text" id="email" name="email" placeholder="enter email">
+	<span id="email-error" class="error-message"></span>
+</p>
+<p>
+	<label for="password">password</label>
+	<input type="password" id="password" name="password" placeholder="enter password">
+	<span id="password-error" class="error-message"></span>
+</p>
+<p>
+	<label for="subject">subject</label>
+	<select id="subject" name="subject">
+		<option value="">select course</option>
+		<option value="Btech">Btech</option>
+		<option value="mca">mca</option>
+	</select>
+	<span id="sub-error" class="error-message"></span>
+</p>
+<p>
+	<label for="comm">colleage name</label>
+	<textarea id="comm" name="comm"></textarea>
+</p>
+<p>
+	<input type="checkbox" id="agree" name="agree">
+	<label for="agree">agree</label>
+	<span id="agree-error" class="error-message"></span>
+</p>
+<p>
+	<input type="submit" name="submit" value="submit">
+	<input type="reset" name="reset" value="reset">
+</p>
+</form>
+<script>
+function vali()
+{
+	const name=document.getElementById("name").value;
+	const addr=document.getElementById("address").value;
+	const email=document.getElementById("email").value;
+	const pass=document.getElementById("password").value;
+	const sub=document.getElementById("subject").value;
+	const agree=document.getElementById("agree").checked;
+	
+	
+	const nameErr=document.getElementById("name-error");
+	const addrErr=document.getElementById("address-error");	
+	const emailErr=document.getElementById("email-error");
+	const passErr=document.getElementById("password-error");
+	const subErr=document.getElementById("sub-error");	
+	const agreeErr=document.getElementById("agree-error");
+	
+	nameErr.textContent="";
+	addrErr.textContent="";
+	emailErr.textContent="";
+	passErr.textContent="";
+	subErr.textContent="";
+	agreeErr.textContent="";
+	
+	
+	let isvalid=true;
+	if(name==="")
+	{
+		nameErr.textContent="no name";
+		isvalid=false;
+	}
+	if(addr==="")
+	{
+		addrErr.textContent="no address";
+		isvalid=false;
+	}
+	if(email==="")
+	{
+		emailErr.textContent="no email";
+		isvalid=false;
+	}
+	else if(!email.includes("@") || !email.includes("."))
+	{
+		emailErr.textContent="enter valid email";
+		isvalid=false;
+	}
+	if(pass==="")
+	{
+		passErr.textContent="no pass";
+		isvalid=false;
+	}
+	else if(pass.length<8)
+	{
+		passErr.textContent="8 charpass";
+		isvalid=false;
+	}
+	if(sub==="")
+	{
+		subErr.textContent="no sub";
+		isvalid=false;
+	}
+	if(!agree)
+	{
+		agreeErr.textContent="please agree";
+		isvalid=false;
+	}
+	if(isvalid)
+	{	
+		alert("submitt successfull");
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+function reseterror()
+{
+	document.getElementById("name-error").textContent="";
+	document.getElementById("address-error").textContent="";
+	document.getElementById("email-error").textContent="";
+	document.getElementById("password-error").textContent="";
+	document.getElementById("sub-error").textContent="";
+	document.getElementById("agree-error").textContent="";
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+    <title>Registration form</title>
+<script>
+        function check(){
+            //call the functions using id
+                        var fname=document.form1.fname.value.trim();
+                        var mname=document.form1.mname.value.trim();
+                        var lname=document.form1.lname.value.trim();
+                        var adname=document.form1.adname.value.trim();
+                        var email=document.form1.email.value.trim();
+                        var pass=document.form1.pass.value;
+                        var conpass=document.form1.conpass.value;
+            //declare the regular expression for validation
+             var nameRegex=/^[A-Za-z\s]+$/;
+             var emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+             if(fname==""){
+                alert("First name cannot be empty");
+                return false;
+             }
+             else if(!nameRegex.test(fname)){
+                alert("first name only contains letter and spaces");
+                return false;
+             }
+             if(mname==""){
+                alert("Middle name cannot be empty");
+                return false;
+             }else if(!nameRegex.test(mname)){
+                alert("middle name only contains letter and spaces");
+                return false;
+             }
+             if(lname==""){
+                alert("last name cannot be empty");
+                return false;
+             }else if(!nameRegex.test(lname)){
+                alert("last name only contains letter and spaces");
+                return false;
+             } 
+             if(adname==""){
+                alert("Address cannot be empty!");
+                return false;
+             }
+             if(email==""){
+                alert("Email cannot be empty");
+                return false;
+             }else if(!emailRegex.test(email)){
+             alert("plese enter a valid email address");
+                return false;
+             }
+             if(pass==""){
+                alert("password cannot be empty");
+                return false;
+             }
+             else if(pass.length<8){
+                alert("atlest 8 character");
+                return false;
+             }else if(!/[A-Z]/.test(pass)){
+                alert("atlest a capital character character");
+                return false;
+             }else if(!/[a-z]/.test(pass)){
+                alert("atlest a small character character");
+                return false;
+             }else if(!/[0-9]/.test(pass)){
+                alert("atlest a number");
+                return false;
+             } 
+             if(conpass=="") 
+             {
+                alert("conpass cannot be empty");
+                return false;
+             }else if(pass!=conpass)
+             {
+                alert("conpass not matching");
+                return false;
+             }
+             alert("registratin successfull");
+             reset;    
+   
+
+        }
+
+</script>
+</head>
+<body align="center">
+    <form name="form1" >
+        Name:<input type="text" name="fname"/><br><br>
+        Middle name:<input type="text" name="mname"/><br><br>
+        last Name:<input  type="text" name="lname"/><br><br>
+        Address:<textarea name="adname"></textarea><br><br>
+        Email:<input type="email" name="email"/><br><br>
+        Password:<input type="password" name="pass"/><br><br>
+        Re-enter Password:<input type="password" name="conpass"/><br><br>
+        <input type="button" name="submit" value="Register" onclick="check()"/><br><br>
+        <input type="reset" name="clear" value="Reset"/><br><br>
+
+    </form>
+    
+</body>
+</html>

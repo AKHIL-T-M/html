@@ -1,0 +1,118 @@
+<html>
+    <head><title>Registarion RED</title>
+        <style>
+            
+        .error-message
+{
+	color:red;
+	font-size:14px;
+	margin-top:5px;
+}
+        </style>
+    </head>
+    <body align="center">
+        <h1>REGISTRATION FORM</h1>
+        <form name="Regform" onsubmit="return vali()" onreset="reseterror()">
+           <p><span id="name-error" class="error-message"></span> 
+            First name:<input type="text" name="name" id="name"/><br><br>
+            </p>
+            <p>
+            <span id="add-error" class="error-message"></span>
+            address:<textarea name="address" id="add"></textarea><br><br>
+            </p>
+            <P>
+            email:<input type="email" name="email" id="email"/><br><br>
+            <span id="email-error" class="error-message"></span>
+            </p>
+            password:<input type="password" name="pass" id="pass"/><br><br>
+            <span id="pass-error" class="error-message"></span>
+            confirm pass:<input type="password" name="conpas" id="conpas"/><br><br>
+            <span id="conpas-error" class="error-message"></span>
+            subject:<select id="sub" name="subject">
+                <option value="">Select course</option>
+                <option value="bca">bca</option>
+                <option value="mca">mca</option>
+            </select><br><br>
+            <span id="sub-error" class="error-message"></span>
+            <input type="submit" name="submit" value="submit">
+            <input type="reset" name="reset" value="reset">
+
+        </form>
+    <script>
+        function vali()
+        {
+            const name=document.getElementById("name").value;
+            const add=document.getElementById("add").value;
+            const email=document.getElementById("email").value;
+            const pass=document.getElementById("pass").value;
+            const conpas=document.getElementById("conpas").value;
+            const sub=document.getElementById("sub").value;
+
+            const nameerror=document.getElementById("name-error");
+            const adderror=document.getElementById("add-error");
+            const emailerror=document.getElementById("email-error");
+            const passerror=document.getElementById("pass-error");
+            const conpaserror=document.getElementById("conpas-error");
+            const suberror=document.getElementById("sub-error");
+            nameerror.textContent="";
+            adderror.textContent="";
+            emailerror.textContent="";
+            passerror.textContent="";
+            conpaserror.textContent="";
+            suberror.textContent="";
+
+            let isvalid=true;
+            if(name=="")
+            {
+                nameerror.textContent="no name";
+                isvalid=false;
+            }
+            if(add=="")
+            {
+                adderror.textContent="no address";
+                isvalid=false;
+            }
+            if(email=="")
+            {
+                emailerror.textContent="no email";
+                isvalid=false;
+            }
+            if(pass=="")
+            {
+                passerror.textContent="no password";
+                isvalid=false;
+            }
+            if(conpas=="")
+            {
+                conpaserror.textContent="no confirm password";
+                isvalid=false;
+            }
+            if(sub=="")
+            {
+                suberror.textContent="no subject";
+                isvalid=false;
+            }
+            if(isvalid)
+            {
+                alert("submit successfull");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        function reseterror()
+            {
+	            document.getElementById("name-error").textContent="";
+	            document.getElementById("add-error").textContent="";
+	                            document.getElementById("email-error").textContent="";
+	                            document.getElementById("pass-error").textContent="";
+	                            document.getElementById("conpas-error").textContent="";
+	                            document.getElementById("sub-error").textContent="";
+
+            }
+            
+    </script>
+    </body>
+    </html>
